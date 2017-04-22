@@ -1,0 +1,6 @@
+Manifest-version: 1.0
+Name: org/lesscss
+Specification-Title: HTML and CSS manipulation utilities
+Specification-Vendor: Marcel Overdijk
+Implementation-Title: org.lesscss
+Implementation-Vendor: Marcel Overdijk

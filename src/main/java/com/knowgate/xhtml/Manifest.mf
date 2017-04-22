@@ -1,0 +1,8 @@
+Manifest-version: 1.0
+Name: com/knowgate/xhtml
+Specification-Title: HTML and CSS manipulation utilities
+Specification-Version: 9.0
+Specification-Vendor: Know Gate
+Implementation-Title: com.knowgate.xhtml
+Implementation-Version: 9.0
+Implementation-Vendor: Know Gate
