@@ -247,8 +247,8 @@ public class StylesheetCache {
   /**
    * Perform XSLT transformation
    * @param oStyleSheetStream Stream to XSL style sheet
-   * @param oXMLInput Input Stream with XML source data
-   * @param oEncoding Input Stream data encoding
+   * @param oXMLInputStream Input Stream with XML source data
+   * @param sEncoding Input Stream data encoding
    * @param oProps Parameters for Transformer. The substring "param_"
    * will be added as a preffix to each property name passed as parameter.
    * So if you pass a property named "workarea" it must be retrieved from XSL
