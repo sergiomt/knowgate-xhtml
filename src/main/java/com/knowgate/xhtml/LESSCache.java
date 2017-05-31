@@ -21,7 +21,7 @@ import org.lesscss.LessCompiler;
 import org.lesscss.LessException;
 
 /**
- * LESS CSS compiler
+ * LESS CSS caching using in-memory WeakHashMap
  * @author Sergio Montoro Ten
  * @see <a href="http://lesscss.org/">lesscss.org</a>
  */
