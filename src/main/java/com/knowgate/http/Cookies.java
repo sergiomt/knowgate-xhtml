@@ -1,8 +1,5 @@
 package com.knowgate.http;
 
-import java.io.UnsupportedEncodingException;
-import java.lang.reflect.InvocationTargetException;
-
 /**
  * © Copyright 2016 the original author.
  * This file is licensed under the Apache License version 2.0.
@@ -16,6 +13,8 @@ import java.lang.reflect.InvocationTargetException;
  */
 
 import java.net.URLDecoder;
+import java.io.UnsupportedEncodingException;
+import java.lang.reflect.InvocationTargetException;
 
 /**
  * <p>Cookies</p>
@@ -39,7 +38,12 @@ public class Cookies {
 					} // fi(aCookies[c]==sName)
 				} // next(c)
 			}
-		} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException | UnsupportedEncodingException e) {
+		} catch (IllegalAccessException iace) {
+		} catch (IllegalArgumentException iare) {
+		} catch (InvocationTargetException itae) {
+		} catch (NoSuchMethodException nsme) {
+		} catch (SecurityException sece) {
+		} catch (UnsupportedEncodingException ence) {
 		}
 		return sValue!=null ? sValue : sDefault;
 	} // getCookie()
