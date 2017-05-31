@@ -43,7 +43,7 @@ import org.mozilla.javascript.tools.shell.Global;
  * <p>
  * The compiler uses Rhino (JavaScript implementation written in Java), Envjs 
  * (simulated browser environment written in JavaScript), and the official LESS 
- * JavaScript compiler.<br />
+ * JavaScript compiler.<br>
  * Note that the compiler is not a Java implementation of LESS itself, but rather 
  * integrates the LESS JavaScript compiler within a Java/JavaScript browser 
  * environment provided by Rhino and Envjs.
@@ -52,7 +52,7 @@ import org.mozilla.javascript.tools.shell.Global;
  * The compiler comes bundled with the Envjs and LESS JavaScript, so there is 
  * no need to include them yourself. But if needed they can be overridden.
  * </p>
- * <h4>Basic code example:</h4>
+ * <b>Basic code example:</b>
  * <pre>
  * LessCompiler lessCompiler = new LessCompiler();
  * String css = lessCompiler.compile("@color: #4D926F; #header { color: @color; }");
@@ -279,6 +279,7 @@ public class LessCompiler implements AutoCloseable {
      * @param input The LESS input <code>File</code> to compile.
      * @param output The output <code>File</code> to write the CSS to.
      * @throws IOException If the LESS file cannot be read or the output file cannot be written.
+     * @throws LessException
      */
     public void compile(File input, File output) throws IOException, LessException {
         this.compile(input, output, true);
@@ -291,6 +292,7 @@ public class LessCompiler implements AutoCloseable {
      * @param output The output <code>File</code> to write the CSS to.
      * @param force 'false' to only compile the LESS input file in case the LESS source has been modified (including imports) or the output file does not exists.
      * @throws IOException If the LESS file cannot be read or the output file cannot be written.
+     * @throws LessException
      */
     public void compile(File input, File output, boolean force) throws IOException, LessException {
         LessSource lessSource = new LessSource(input);
@@ -302,6 +304,7 @@ public class LessCompiler implements AutoCloseable {
      * 
      * @param input The input <code>LessSource</code> to compile.
      * @return The CSS.
+     * @throws LessException
      */
     public String compile(LessSource input) throws LessException {
         return compile(input.getNormalizedContent());
@@ -313,6 +316,7 @@ public class LessCompiler implements AutoCloseable {
      * @param input The input <code>LessSource</code> to compile.
      * @param output The output <code>File</code> to write the CSS to.
      * @throws IOException If the LESS file cannot be read or the output file cannot be written.
+     * @throws LessException
      */
     public void compile(LessSource input, File output) throws IOException, LessException {
         compile(input, output, true);

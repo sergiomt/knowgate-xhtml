@@ -23,6 +23,14 @@ import java.lang.reflect.InvocationTargetException;
  */
 public class Cookies {
 
+	/**
+	 * Get cookie from an HttpServletRequest
+	 * @param httpServletRequest javax.servlet.http.HttpServletRequest
+	 * @param sName String Cookie Name
+	 * @param sDefault String Default Value
+	 * @param sEncoding String Character encoding
+	 * @return String Cookie value or <b>null</b> if no cookie with such name exists in the HttpServletRequest
+	 */
 	public static String getCookie (Object httpServletRequest, String sName, String sDefault, String sEncoding) {
 		Object[] aCookies = null;
 		String sValue = null;

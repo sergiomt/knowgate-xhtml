@@ -291,12 +291,12 @@ public class XMLDocument {
    * Add a piece of XML text after a given node identifier by an XPath expression.
    * @param sAfterXPath Restricted XPath expression for node after witch the next node is to be placed.
    * For example : <br>
-   * "pageset/pages/page[@guid="123456789012345678901234567890AB"]/blocks/block[@id="003"]" will add sNode text after <block id="003">...</block> substring.<br>
-   * "pageset/pages/page[position()=last()]" will add sNode text after last <page>...</page> substring.
+   * "pageset/pages/page[@guid="123456789012345678901234567890AB"]/blocks/block[@id="003"]" will add sNode text after &lt;block id="003"&gt;&hellip;&lt;/block&gt; substring.<br>
+   * "pageset/pages/page[position()=last()]" will add sNode text after last &lt;page&gt;&hellip;&lt;/page&gt; substring.
    * @param sNode XML Text to be added.
    * @throws DOMException
    * DOMException Codes:<br>
-   * <table border=1 cellpadding=4>
+   * <table border=1 cellpadding=4 summary="DOMException Codes">
    * <tr><td>NOT_FOUND_ERR</td><td>A node or attribute from the XPath expression was not found</td></tr>
    * <tr><td>INVALID_ACCESS_ERR</td><td>An attribute expression is invalid</td></tr>
    * <tr><td>NOT_SUPPORTED_ERR</td><td>position() function was used but last() was not specified as value for it</td></tr>
@@ -424,7 +424,7 @@ public class XMLDocument {
    * Remove a node.
    * @param sXPath Restricted XPath expression for node to remove.
    * For example: "pageset/pages/page[@guid="123456789012345678901234567890AB"]/blocks/block[@id="003"]"
-   * will remove <block id="003">...</block> substring.
+   * will remove &lt;block id="003"&gt;&hellip;&lt;/block&gt; substring.
    * @throws DOMException
    */
   public void removeNode(String sXPath) throws DOMException {

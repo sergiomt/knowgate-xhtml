@@ -1097,7 +1097,7 @@ public class UAgentInfo {
     /**
      * The quick way to detect for a tier of devices.
      *   This method detects for devices which can
-     *   display iPhone-optimized web content.
+     *   display iPhone-optimised web content.
      *   Includes iPhone, iPod Touch, Android, Windows Phone 7 and 8, BB10, WebOS, Playstation Vita, etc.
      * @return detection of any device in the iPhone/Android/Windows Phone/BlackBerry/WebOS Tier
      */
