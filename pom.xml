@@ -3,9 +3,10 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.knowgate</groupId>
   <artifactId>knowgate-xhtml</artifactId>
-  <version>9.0</version>
+  <version>9.0.1</version>
   <packaging>jar</packaging>
   <name>knowgate-xhtml</name>
+  <description>KnowGate HTTP, HTML, XSLT and CSS utilities</description>  
   <url>http://maven.apache.org</url>
   <licenses>
     <license>
@@ -50,8 +51,77 @@
         <configuration>
         </configuration>
       </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>2.10.4</version>
+        <executions>
+          <execution>
+            <id>attach-javadocs</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <reportOutputDirectory>${project.basedir}</reportOutputDirectory>
+          <destDir>docs</destDir>
+          <additionalparam>-Xdoclint:none</additionalparam>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>2.2.1</version>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <goals>
+              <goal>jar-no-fork</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
+  <profiles>
+    <profile>
+      <id>ossrh</id>
+      <build>
+      <plugins>
+        <plugin>
+          <groupId>org.sonatype.plugins</groupId>
+          <artifactId>nexus-staging-maven-plugin</artifactId>
+          <version>1.6.7</version>
+          <extensions>true</extensions>
+          <configuration>
+            <serverId>ossrh</serverId>
+            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+            <autoReleaseAfterClose>true</autoReleaseAfterClose>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-gpg-plugin</artifactId>
+          <version>1.6</version>
+          <executions>
+            <execution>
+              <id>sign-artifacts</id>
+              <phase>verify</phase>
+              <goals>
+                <goal>sign</goal>
+              </goals>
+              <configuration>
+                <keyname>${gpg.keyname}</keyname>
+                <passphraseServerId>${gpg.passphrase}</passphraseServerId>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+      </plugins>
+      </build>      
+    </profile>
+  </profiles>
   <properties>
     <skipTests>true</skipTests>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -60,23 +130,23 @@
     <dependency>
       <groupId>com.knowgate</groupId>
       <artifactId>knowgate-base</artifactId>
-      <version>9.0</version>
+      <version>9.0.1</version>
     </dependency>
     <dependency>
       <groupId>javax.mail</groupId>
       <artifactId>javax.mail-api</artifactId>
-      <version>1.5.1</version>
+      <version>1.6.0</version>
     </dependency>
     <dependency>
       <groupId>com.sun.mail</groupId>
       <artifactId>mailapi</artifactId>
-      <version>1.5.1</version>
+      <version>1.6.0</version>
       <scope>runtime</scope>
     </dependency>
     <dependency>
       <groupId>com.sun.mail</groupId>
       <artifactId>smtp</artifactId>
-      <version>1.5.1</version>
+      <version>1.6.0</version>
     </dependency>
     <dependency>
       <groupId>org.knallgrau.utils</groupId>
@@ -101,13 +171,7 @@
     <dependency>
       <groupId>org.mozilla</groupId>
       <artifactId>rhino</artifactId>
-      <version>1.7.7.1</version>
-    </dependency>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
-      <scope>test</scope>
+      <version>1.7.8-RC1</version>
     </dependency>
   </dependencies>
 </project>
