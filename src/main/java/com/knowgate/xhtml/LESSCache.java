@@ -25,33 +25,33 @@ import org.lesscss.LessException;
  * @author Sergio Montoro Ten
  * @see <a href="http://lesscss.org/">lesscss.org</a>
  */
-public class LESSCache extends WeakHashMap<String,String> {
+public class LESSCache extends WeakHashMap<String, String> {
 
-  /**
-   * Convert a LESS CSS file into plain CSS
-   * @param lcssFile File with LESS CSS
-   * @return String CSS source code
-   * @throws LessException
-   * @throws IOException
-   */
-  public String render(File lcssFile)
-	throws LessException, IOException {
-    final String sFilePath = lcssFile.getAbsolutePath();
-	String sRetCSS = null;    
-	if (containsKey(sFilePath)) {
-	  sRetCSS = get(sFilePath);
-	} else {
-      LessCompiler oLssC = null;
-      try {
-        oLssC = new LessCompiler();
-        oLssC.setCompress(true);
-	      sRetCSS = oLssC.compile(lcssFile);
-		    put(sFilePath, sRetCSS);
-      } finally {
-    	if (oLssC!=null) oLssC.close();
-      }
-	}
-	return sRetCSS;
-  } // 	render
+	/**
+	 * Convert a LESS CSS file into plain CSS
+	 * @param lcssFile File with LESS CSS
+	 * @return String CSS source code
+	 * @throws LessException
+	 * @throws IOException
+	 */
+	public String render(File lcssFile) throws LessException, IOException {
+		final String sFilePath = lcssFile.getAbsolutePath();
+		String sRetCSS = null;
+		if (containsKey(sFilePath)) {
+			sRetCSS = get(sFilePath);
+		} else {
+			LessCompiler oLssC = null;
+			try {
+				oLssC = new LessCompiler();
+				oLssC.setCompress(true);
+				sRetCSS = oLssC.compile(lcssFile);
+				put(sFilePath, sRetCSS);
+			} finally {
+				if (oLssC != null)
+					oLssC.close();
+			}
+		}
+		return sRetCSS;
+	} // render
 
 }

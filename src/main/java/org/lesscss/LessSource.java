@@ -59,10 +59,12 @@ public class LessSource {
             throw new FileNotFoundException("File " + file.getAbsolutePath() + " not found.");
         }
         this.file = file;
-        this.content = new String(Files.readAllBytes(file.toPath()));
+        this.content = new String(Files.readAllBytes(file.toPath()), "ISO8859_1");
+        if (content==null)
+            throw new IOException("Could not read file " + file.getAbsolutePath());
         resolveImports();
     }
-    
+
     /**
      * Returns the absolute pathname of the LESS source.
      * 
