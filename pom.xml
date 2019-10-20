@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.knowgate</groupId>
   <artifactId>knowgate-xhtml</artifactId>
-  <version>9.0.1</version>
+  <version>9.1.0</version>
   <packaging>jar</packaging>
   <name>knowgate-xhtml</name>
   <description>KnowGate HTTP, HTML, XSLT and CSS utilities</description>  
@@ -123,7 +123,7 @@
     <dependency>
       <groupId>com.knowgate</groupId>
       <artifactId>knowgate-base</artifactId>
-      <version>9.0.1</version>
+      <version>9.1.0</version>
     </dependency>
     <dependency>
       <groupId>javax.activation</groupId>
